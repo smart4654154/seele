@@ -12,11 +12,11 @@
 import os
 import random
 import json
-from utils.system_utils import searchForMaxIteration
-from scene.dataset_readers import sceneLoadTypeCallbacks
-from scene.gaussian_model import GaussianModel
-from arguments import ModelParams
-from utils.camera_utils import cameraList_from_camInfos, camera_to_JSON
+from submodules.seele.utils.system_utils import searchForMaxIteration
+from submodules.seele.scene.dataset_readers import sceneLoadTypeCallbacks
+from submodules.seele.scene.gaussian_model import GaussianModel
+from submodules.seele.arguments import ModelParams
+from submodules.seele.utils.camera_utils import cameraList_from_camInfos, camera_to_JSON
 
 class Scene:
 
@@ -27,6 +27,7 @@ class Scene:
         :param path: Path to colmap scene main folder.
         """
         self.model_path = args.model_path
+        print(self.model_path)
         self.loaded_iter = None
         self.gaussians = gaussians
 

@@ -10,13 +10,13 @@
 #
 
 import torch
-from scene import Scene
+from submodules.seele.scene import Scene
 import os
 from tqdm import tqdm
 from os import makedirs
-from gaussian_renderer import render
-from utils.general_utils import safe_state
-from utils.graphics_utils import getWorld2View2
+from submodules.seele.gaussian_renderer import render
+from submodules.seele.utils.general_utils import safe_state
+from submodules.seele.utils.graphics_utils import getWorld2View2
 
 import joblib
 import numpy as np
@@ -24,8 +24,8 @@ from sklearn.cluster import KMeans
 from scipy.spatial.transform import Rotation as Rot
 
 from argparse import ArgumentParser
-from arguments import ModelParams, PipelineParams, get_combined_args
-from gaussian_renderer import GaussianModel
+from submodules.seele.arguments import ModelParams, PipelineParams, get_combined_args
+from submodules.seele.gaussian_renderer import GaussianModel
 try:
     from diff_gaussian_rasterization import SparseGaussianAdam
     SPARSE_ADAM_AVAILABLE = True

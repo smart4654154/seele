@@ -4,13 +4,12 @@ import joblib
 import torch
 import os
 import time
-from tqdm import tqdm
 from argparse import ArgumentParser
-from scene import Scene
-from gaussian_renderer import render, GaussianModel, GaussianStreamManager
-from utils.general_utils import safe_state
-from utils.pose_utils import generate_ellipse_path, getWorld2View2
-from arguments import ModelParams, PipelineParams, get_combined_args
+from submodules.seele.scene import Scene
+from submodules.seele.gaussian_renderer import render, GaussianModel, GaussianStreamManager
+from submodules.seele.utils.general_utils import safe_state
+from submodules.seele.utils.pose_utils import generate_ellipse_path, getWorld2View2
+from submodules.seele.arguments import ModelParams, PipelineParams, get_combined_args
 from generate_cluster import generate_features_from_Rt
 import torchvision
 SPARSE_ADAM_AVAILABLE = False

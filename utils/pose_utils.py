@@ -3,7 +3,7 @@
 import numpy as np
 import torch
 from icecream import ic
-from utils.graphics_utils import getWorld2View2
+from submodules.seele.utils.graphics_utils import getWorld2View2
 
 
 def normalize(x):

@@ -8,20 +8,19 @@
 #
 # For inquiries contact  george.drettakis@inria.fr
 #
-import numpy as np
 import joblib
 import torch
-from scene import Scene
+from submodules.seele.scene import Scene
 import os
 from tqdm import tqdm
 from os import makedirs
-from gaussian_renderer import render
+from submodules.seele.gaussian_renderer import render
 import torchvision
-from utils.general_utils import safe_state
+from submodules.seele.utils.general_utils import safe_state
 from argparse import ArgumentParser
-from arguments import ModelParams, PipelineParams, get_combined_args
+from submodules.seele.arguments import ModelParams, PipelineParams, get_combined_args
 # from gaussian_renderer import GaussianModel
-from gaussian_renderer import GaussianModel, GaussianStreamManager
+from submodules.seele.gaussian_renderer import GaussianModel, GaussianStreamManager
 try:
     from diff_gaussian_rasterization import SparseGaussianAdam
     SPARSE_ADAM_AVAILABLE = True
@@ -30,6 +29,7 @@ except:
     
 def render_set(model_path, name, iteration, views, gaussians, pipeline, background, train_test_exp, separate_sh, args):
     # Initialize paths and configuration
+    
     render_path = os.path.join(model_path, name, f"ours_{iteration}", "renders")
     gts_path = os.path.join(model_path, name, f"ours_{iteration}", "gt")
     makedirs(render_path, exist_ok=True)
@@ -104,6 +104,7 @@ if __name__ == "__main__":
     parser.add_argument("--quiet", action="store_true")
     args = get_combined_args(parser)
     args.data_device = 'cpu'
+    
     print("Rendering " + args.model_path)
     # Initialize system state (RNG)
     safe_state(args.quiet)
